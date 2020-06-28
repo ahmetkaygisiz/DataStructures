@@ -53,25 +53,25 @@ public class DynamicArray {
         System.out.println(" ** Shrinked ** ");
     }
 
-    public void addAt(int index, Object data){
+    public void addAt(int count, Object data){
         if(checkSize())
             expandArray(2);
 
-        for(int i = index ; i < size + 1 ; i++)
+        for(int i = count ; i < size + 1 ; i++)
             array[i + 1] = array[i];
-        array[index] = data;
+        array[count] = data;
         size++;
     }
 
-    public void removeAt(int index) {
-        if (index > 0 && size > index) {
-            System.out.println(" ** Removing : " + array[index] + " , index " + index + " ** ");
-            for (int i = index; i < size - 1; i++)
+    public void removeAt(int count) {
+        if (count > 0 && size > count) {
+            System.out.println(" ** Removing : " + array[count] + " , count " + count + " ** ");
+            for (int i = count; i < size - 1; i++)
                 array[i] = array[i + 1];
             array[size - 1] = null;
             size--;
         }else {
-            System.out.println("Wrong index");
+            System.out.println("Wrong count");
         }
     }
 
