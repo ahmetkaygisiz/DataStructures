@@ -1,13 +1,16 @@
-package com.akua._02_linked_list;
+package com.akua._05_hash_table;
 
 public class Node {
-
     private Object value;
     private Node next;
 
-    public Node(Object value, Node node){
+    public Node(){
+        next = null;
+    }
+
+    public Node(Object value){
         this.value = value;
-        this.next = node;
+        next = null;
     }
 
     public Object getValue() {

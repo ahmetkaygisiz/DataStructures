@@ -1,22 +1,21 @@
-package com.akua._02_linked_list;
+package com.akua._02_linkedlist_uni;
 
 public class CustomLinkedList<T>{
-
     Node head; // başlangıç node
     int count;
 
     public CustomLinkedList(){
-        head = null;
-        count = 0;
+        this.head = null;
+        this.count = 0;
     }
 
     public void add(Object value){
         Node newNode = new Node(value, null);
 
         if(head == null){
-           head = newNode;
-           count++;
-           return ;
+            this.head = newNode;
+            count++;
+            return ;
         }
 
         Node currentItem = head;
@@ -74,7 +73,10 @@ public class CustomLinkedList<T>{
             Node current = head;
 
             if( index <= 1 ){
-                head = head.getNext();
+                if(head.getNext() != null) // if exists the next value
+                    this.head = head.getNext();
+                 else
+                    this.head = null;
                 count--;
             }else if(index == count && index > count){
                 delete();
@@ -95,4 +97,13 @@ public class CustomLinkedList<T>{
     public int getCount() {
         return count;
     }
+
+    public Node getHead(){
+        return head;
+    }
+
+    public void setHead(Node head){
+        this.head = head;
+    }
+
 }
