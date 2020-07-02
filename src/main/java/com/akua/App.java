@@ -1,7 +1,9 @@
 package com.akua;
 
 import com.akua._01_dynamic_array.DynamicArray;
-import com.akua._02_linkedlist_uni.CustomLinkedList;
+import com.akua._02_linkedlist_bidirectional.BiLinkedListImpl;
+import com.akua._02_linkedlist_circular.CircularLinkedListImpl;
+import com.akua._02_linkedlist_unidirectional.UniLinkedList;
 import com.akua._03_stack.StackImpl;
 import com.akua._04_queue.QueueImplWithArray;
 import com.akua._04_queue.QueueImplWithLinkedList;
@@ -12,11 +14,13 @@ import java.util.stream.Collectors;
 public class App {
     public static void main(String[] args){
         // dynamicArray();
-        // customLinkedList();
+        // uniLinkedList();
+        // circularLinkedList();
+        // biLinkedList();
         // stack();
         // queueWArray();
         // queueWLinkedList();
-        hashtable();
+         hashtable();
     }
 
     public static void dynamicArray(){
@@ -45,41 +49,75 @@ public class App {
         dynamicArr.shrinkArray();
         dynamicArr.toStringSizeAndCapacity();
         dynamicArr.printArray();
+        dynamicArr.removeAt(0);
+        dynamicArr.printArray();
     }
-    public static void customLinkedList(){
-        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<Integer>();
-        customLinkedList.add(1);
-        customLinkedList.add(2);
-        customLinkedList.add(3);
-        customLinkedList.add(4);
-        customLinkedList.add(5);
-        customLinkedList.add(6);
-        customLinkedList.add(7);
-        customLinkedList.add(8);
-        customLinkedList.add(9);
+    public static void uniLinkedList(){
+        UniLinkedList<Integer> uniLinkedList = new UniLinkedList<Integer>();
+        uniLinkedList.add(1);
+        uniLinkedList.delete();
+        uniLinkedList.print();
+
+        uniLinkedList.add(2);
+        uniLinkedList.add(3);
+        uniLinkedList.add(4);
+        uniLinkedList.add(5);
+        uniLinkedList.add(6);
+        uniLinkedList.add(7);
+        uniLinkedList.add(8);
+        uniLinkedList.add(9);
 
         System.out.println("Delete 3rd indexed element");
-        customLinkedList.deleteByIndex(3); // 3'ü sildi
-        customLinkedList.print();
+        uniLinkedList.deleteByIndex(3); // 3'ü sildi
+        uniLinkedList.print();
 
         System.out.println("Delete 1st indexed element");
-        customLinkedList.deleteByIndex(1); // 1'i sildi
-        customLinkedList.print();
+        uniLinkedList.deleteByIndex(1); // 1'i sildi
+        uniLinkedList.print();
 
         System.out.println("Delete 7th indexed element");
-        customLinkedList.deleteByIndex(7);
-        customLinkedList.print();
+        uniLinkedList.deleteByIndex(7);
+        uniLinkedList.print();
 
         System.out.println("Delete last element");
-        customLinkedList.delete();
-        customLinkedList.print();
+        uniLinkedList.delete();
+        uniLinkedList.print();
 
         System.out.println("delete unlisted element");
-        customLinkedList.deleteByIndex(-1); // Burada bir sıkıntı var.
-        customLinkedList.print();
+        uniLinkedList.deleteByIndex(-1);
+        uniLinkedList.print();
 
-        customLinkedList.updateValueByIndex(2," 64 ");
-        customLinkedList.print();
+        uniLinkedList.updateValueByIndex(2," 64 ");
+        uniLinkedList.print();
+    }
+    public static void circularLinkedList(){
+        CircularLinkedListImpl circularLinkedList = new CircularLinkedListImpl();
+        circularLinkedList.add(3);
+        circularLinkedList.add(5);
+        circularLinkedList.add(12);
+        circularLinkedList.add(9);
+
+        circularLinkedList.delete();
+        circularLinkedList.delete();
+        circularLinkedList.delete();
+
+        circularLinkedList.print();
+
+
+    }
+    public static void biLinkedList(){
+        BiLinkedListImpl biLinkedList = new BiLinkedListImpl();
+        biLinkedList.addEnd(6);
+        biLinkedList.addHead(5);
+        biLinkedList.addEnd(7);
+        biLinkedList.addEnd(8);
+        biLinkedList.addHead(4);
+
+        biLinkedList.printForward();
+        biLinkedList.deleteFromHead();
+        biLinkedList.deleteFromTail();
+        biLinkedList.printForward();
+
     }
     public static void stack(){
         StackImpl<Integer> stack = new StackImpl<Integer>(5);
@@ -183,5 +221,14 @@ public class App {
         h.add(7);
 
         h.printHashTable();
+        h.removeValue(7);
+        h.removeValue(7);
+        h.removeValue(7);
+        h.removeValue(5);
+        h.removeValue(6);
+
+        h.printHashTable();
+
+
     }
 }

@@ -1,10 +1,10 @@
 ## Data Structures Implementations
 
 * Dynamic Array ✓
-* Linked List  
+* Linked List  ✓
     - Uni-Directional Linked List ✓ 
-    - Bi-Directional Linked List
-    - Circular Linked List 	 
+    - Bi-Directional Linked List ✓
+    - Circular Linked List 	 ✓
 * Stack ✓
 * Queue ✓
     * Impl with Array ✓
@@ -20,4 +20,3 @@
 * Graph
     - DFS
     - BFS
-

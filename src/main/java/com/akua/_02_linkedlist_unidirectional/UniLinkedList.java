@@ -1,13 +1,8 @@
-package com.akua._02_linkedlist_uni;
+package com.akua._02_linkedlist_unidirectional;
 
-public class CustomLinkedList<T>{
-    Node head; // başlangıç node
-    int count;
-
-    public CustomLinkedList(){
-        this.head = null;
-        this.count = 0;
-    }
+public class UniLinkedList<T>{
+    private Node head;
+    private int count = 0;
 
     public void add(Object value){
         Node newNode = new Node(value, null);
@@ -45,15 +40,19 @@ public class CustomLinkedList<T>{
 
     public void delete(){
         if (head != null) {
-            Node tmp = head;
-
-            while ( tmp.getNext().getNext() != null){
-                tmp = tmp.getNext();
+            if(head.getNext() == null){
+                head = null;
+            }else{
+                Node tmp = head;
+                while ( tmp.getNext().getNext() != null){
+                    tmp = tmp.getNext();
+                }
+                tmp.setNext(null);
             }
-            tmp.setNext(null);
             count--;
         }
     }
+
     public void updateValueByIndex(int index, Object value){
         Node current = head ;
         int i = 1;
@@ -78,14 +77,13 @@ public class CustomLinkedList<T>{
                  else
                     this.head = null;
                 count--;
-            }else if(index == count && index > count){
+            }else if(index == count  || index > count ){
                 delete();
             }else{
                 int tmp = 1;
 
-                while(tmp != (index - 1)){
+                while(tmp++ != (index - 1) ){
                     current = current.getNext();
-                    tmp++;
                 }
 
                 current.setNext(current.getNext().getNext());
@@ -97,13 +95,7 @@ public class CustomLinkedList<T>{
     public int getCount() {
         return count;
     }
-
     public Node getHead(){
         return head;
     }
-
-    public void setHead(Node head){
-        this.head = head;
-    }
-
 }

@@ -1,13 +1,11 @@
-package com.akua._02_linkedlist_uni;
+package com.akua._02_linkedlist_circular;
 
 public class Node {
-
     private Object value;
     private Node next;
 
-    public Node(Object value, Node node){
+    public Node(Object value) {
         this.value = value;
-        this.next = node;
     }
 
     public Object getValue() {

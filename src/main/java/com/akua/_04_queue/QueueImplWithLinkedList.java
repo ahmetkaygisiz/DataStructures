@@ -1,14 +1,14 @@
 package com.akua._04_queue;
 
-import com.akua._02_linkedlist_uni.CustomLinkedList;
+import com.akua._02_linkedlist_unidirectional.UniLinkedList;
 
 public class QueueImplWithLinkedList<T> {
-    private CustomLinkedList<T> list;
+    private UniLinkedList<T> list;
     private int maxSize;
 
     public QueueImplWithLinkedList(int maxSize){
         this.maxSize = maxSize;
-        list = new CustomLinkedList<T>();
+        list = new UniLinkedList<T>();
     }
 
     public void enQueue(Object value){

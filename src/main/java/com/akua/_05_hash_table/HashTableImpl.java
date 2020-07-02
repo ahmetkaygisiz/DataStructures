@@ -1,8 +1,5 @@
 package com.akua._05_hash_table;
 
-import java.util.Arrays;
-
-// Still working on it ...
 public class HashTableImpl {
     private Node[] hashArr;
     private int size;
@@ -40,22 +37,23 @@ public class HashTableImpl {
     }
 
     public void printHashTable(){
-        Node[] tmpArr = hashArr;
-
         for(int i = 0; i < size ; i++){
+            Node tmpNode = hashArr[i];
             System.out.print("i : " + i + " Values : ");
 
-            while(tmpArr[i] != null){
-                System.out.print(tmpArr[i].getValue() + " -> ");
-                tmpArr[i] = tmpArr[i].getNext();
+            while(tmpNode != null){
+                System.out.print(tmpNode.getValue() + " -> ");
+                tmpNode = tmpNode.getNext();
             }
 
             System.out.println();
         }
-
     }
 
-    public void remove() {
+    public void removeValue(Object value){
+        int key = generateKey(value);
+        Node current = hashArr[key];
 
+        // Abicim park etme oraya aracını kod gelecek.
     }
 }

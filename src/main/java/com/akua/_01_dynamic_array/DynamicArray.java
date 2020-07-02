@@ -24,49 +24,47 @@ public class DynamicArray {
         size++;
     }
 
-
     public void expandArray(int rate){
-        Object[] temp = null;
-
         if (checkSize()){
-            temp = new Object[capacity * rate];
+
+            Object[] temp = new Object[capacity * rate];
             for (int i = 0 ; i < capacity; i++)
                 temp[i] = array[i];
-        }
 
-        array = temp;
-        capacity *= rate ;
+            array = temp;
+            capacity *= rate ;
+        }
     }
 
     public void shrinkArray(){
         Object[] temp = null;
 
-        if (size > 0){
-            temp = new Object[size];
+        if (size == 0 && size == capacity)
+            return ;
 
-            for(int i = 0; i < size; i++)
-                temp[i] = array[i];
-        }
+        temp = new Object[size];
+        for(int i = 0; i < size; i++)
+            temp[i] = array[i];
 
         capacity = size;
         array = temp;
         System.out.println(" ** Shrinked ** ");
     }
 
-    public void addAt(int count, Object data){
+    public void addAt(int index, Object data){
         if(checkSize())
             expandArray(2);
 
-        for(int i = count ; i < size + 1 ; i++)
+        for(int i = index ; i < size + 1 ; i++)
             array[i + 1] = array[i];
-        array[count] = data;
+        array[index] = data;
         size++;
     }
 
-    public void removeAt(int count) {
-        if (count > 0 && size > count) {
-            System.out.println(" ** Removing : " + array[count] + " , count " + count + " ** ");
-            for (int i = count; i < size - 1; i++)
+    public void removeAt(int index) {
+        if (index >= 0 && size > index) {
+            System.out.println(" ** Removing : " + array[index] + " , count " + index + " ** ");
+            for (int i = index; i < size - 1; i++)
                 array[i] = array[i + 1];
             array[size - 1] = null;
             size--;
