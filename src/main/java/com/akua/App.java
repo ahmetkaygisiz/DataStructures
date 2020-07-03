@@ -9,6 +9,7 @@ import com.akua._04_queue.QueueImplWithArray;
 import com.akua._04_queue.QueueImplWithLinkedList;
 import com.akua._05_hash_table.HashTableImpl;
 
+import java.util.Hashtable;
 import java.util.stream.Collectors;
 
 public class App {
@@ -20,7 +21,7 @@ public class App {
         // stack();
         // queueWArray();
         // queueWLinkedList();
-         hashtable();
+        // hashtable();
     }
 
     public static void dynamicArray(){
@@ -208,27 +209,27 @@ public class App {
 
     }
     public static void hashtable(){
+        Hashtable<Integer, String> hash_table =
+                new Hashtable<Integer, String>();
+
         HashTableImpl h = new HashTableImpl(5);
-        h.add(5);
-        h.add(6);
-        h.add(1);
-        h.add(6);
-        h.add(1);
-        h.add(6);
-        h.add(7);
-        h.add(1);
-        h.add(7);
-        h.add(7);
+        h.add("Ahmet");
+        h.add("Mehmet");
+        h.add("Test");
+        h.add("Table");
+        h.add("Hash");
 
         h.printHashTable();
-        h.removeValue(7);
-        h.removeValue(7);
-        h.removeValue(7);
-        h.removeValue(5);
-        h.removeValue(6);
-
+        System.out.println("------");
+        h.add("Table");
+        h.add("Ahmet");
+        h.add("Table");
         h.printHashTable();
 
-
+        System.out.println("------");
+        h.removeValue("Ahmet");
+        h.removeValue("Hash");
+        h.removeValue("Hash");
+        h.printHashTable();
     }
 }

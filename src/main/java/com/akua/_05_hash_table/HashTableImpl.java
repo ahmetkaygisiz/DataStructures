@@ -7,10 +7,6 @@ public class HashTableImpl {
     public HashTableImpl(int size){
         this.size = size;
         hashArr = new Node[size];
-
-        for(int i = 0 ; i < size; i++){
-            hashArr[i] = new Node();
-        }
     }
 
     public int generateKey(Object value){
@@ -20,11 +16,12 @@ public class HashTableImpl {
     public void add(Object value){
         int key = generateKey(value);
 
-        if (isHeadEmpty(key)) {
-           hashArr[key].setValue(value);
+        if (hashArr[key] == null) {
+            hashArr[key] = new Node();
+            hashArr[key].setValue(value);
         }else{
-            Node currentNode = hashArr[key];            // Start with headNode
-                                                        // Link the other nodes.
+            Node currentNode = hashArr[key];
+
             while (currentNode.getNext() != null) {
                 currentNode = currentNode.getNext();
             }
@@ -32,14 +29,10 @@ public class HashTableImpl {
         }
     }
 
-    public boolean isHeadEmpty(int key){
-        return (hashArr[key].getValue() == null);
-    }
-
     public void printHashTable(){
         for(int i = 0; i < size ; i++){
             Node tmpNode = hashArr[i];
-            System.out.print("i : " + i + " Values : ");
+            System.out.print("i : " + i + " Values -- ");
 
             while(tmpNode != null){
                 System.out.print(tmpNode.getValue() + " -> ");
@@ -50,10 +43,38 @@ public class HashTableImpl {
         }
     }
 
+    // Needs to be improved !!!
     public void removeValue(Object value){
         int key = generateKey(value);
         Node current = hashArr[key];
 
-        // Abicim park etme oraya aracını kod gelecek.
+        if(current != null){
+            if(current.getValue() == value){
+                if(current.getNext() == null)
+                    hashArr[key] = null;
+                else
+                    hashArr[key] = current.getNext();
+            }else{
+                boolean found = false;
+
+                while(current.getNext() != null){
+                    if(current.getNext().getValue() == value){
+                        found = true;
+                        break;
+                    }
+                    current = current.getNext();
+                }
+
+                if(found){
+                    if(current.getNext().getNext() != null)
+                        current.setNext(current.getNext().getNext());
+                    else
+                        current.setNext(null);
+                }else{
+                    if (current.getValue() == value)
+                        current = null;
+                }
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 package com.akua._02_linkedlist_unidirectional;
 
 public class Node {
-
     private Object value;
     private Node next;
 
