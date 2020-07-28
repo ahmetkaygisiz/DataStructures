@@ -25,12 +25,12 @@ public class UniLinkedList<T>{
 
     public void print(){
         if(head != null){
-            Node tmp1  = head;
+            Node currentItem  = head;
             String output = "List : [ ";
 
-            while(tmp1 != null){
-                output += tmp1.getValue() + " ";
-                tmp1 = tmp1.getNext();
+            while(currentItem != null){
+                output += currentItem.getValue() + " ";
+                currentItem = currentItem.getNext();
             }
             output += "]";
 
@@ -43,11 +43,11 @@ public class UniLinkedList<T>{
             if(head.getNext() == null){
                 head = null;
             }else{
-                Node tmp = head;
-                while ( tmp.getNext().getNext() != null){
-                    tmp = tmp.getNext();
+                Node currentItem = head;
+                while ( currentItem.getNext().getNext() != null){
+                    currentItem = currentItem.getNext();
                 }
-                tmp.setNext(null);
+                currentItem.setNext(null);
             }
             count--;
         }
@@ -95,6 +95,7 @@ public class UniLinkedList<T>{
     public int getCount() {
         return count;
     }
+
     public Node getHead(){
         return head;
     }

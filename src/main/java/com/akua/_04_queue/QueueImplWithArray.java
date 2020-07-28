@@ -32,7 +32,7 @@ public class QueueImplWithArray<T> {
 
     public T deQueue(){
         if(!isEmpty()) {
-            T tmp = (T) queueArray[rear];
+            T tmp = (T) queueArray[0];
 
             for (int i = 1; i < rear + 1; i++)
                 queueArray[ i - 1 ] = queueArray[i];

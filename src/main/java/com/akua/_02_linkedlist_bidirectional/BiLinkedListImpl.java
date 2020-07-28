@@ -76,18 +76,9 @@ public class BiLinkedListImpl {
                 head = null;
                 tail = null;
             }else {
-                Node current = head;
-
-                while(current.getNext() != tail){
-                    current = current.getNext();
-                }
-                current.setNext(null);
-                tail = current;
+                tail = tail.getPrev();
             }
         }
     }
 
-    public void deleteWithIndex(int index){
-
-    }
 }

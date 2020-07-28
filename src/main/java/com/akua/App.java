@@ -8,6 +8,7 @@ import com.akua._03_stack.StackImpl;
 import com.akua._04_queue.QueueImplWithArray;
 import com.akua._04_queue.QueueImplWithLinkedList;
 import com.akua._05_hash_table.HashTableImpl;
+import com.akua._06_binary_search_tree.BinarySearchTreeImpl;
 
 import java.util.Hashtable;
 import java.util.stream.Collectors;
@@ -16,12 +17,13 @@ public class App {
     public static void main(String[] args){
         // dynamicArray();
         // uniLinkedList();
-        // circularLinkedList();
+        //circularLinkedList();
         // biLinkedList();
         // stack();
         // queueWArray();
         // queueWLinkedList();
         // hashtable();
+        binarySearchTree();
     }
 
     public static void dynamicArray(){
@@ -231,5 +233,23 @@ public class App {
         h.removeValue("Hash");
         h.removeValue("Hash");
         h.printHashTable();
+    }
+    public static void binarySearchTree(){
+        BinarySearchTreeImpl bst = new BinarySearchTreeImpl();
+
+        bst.addNode(5);
+        bst.addNode(1);
+        bst.addNode(3);
+
+        bst.addNode(6);
+        bst.addNode(4);
+
+        bst.searchValue(3);
+        bst.deleteNode(3);
+        bst.searchValue(3);
+
+        bst.addNode(0);
+        bst.addNode(-1);
+        bst.addNode(8);
     }
 }

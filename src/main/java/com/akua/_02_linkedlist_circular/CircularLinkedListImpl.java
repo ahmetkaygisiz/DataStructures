@@ -19,13 +19,13 @@ public class CircularLinkedListImpl {
 
     public void print(){
         if(head != null){
-            Node tmp1  = head;
+            Node current  = head;
             String output = "List : [ ";
 
             do{
-                output += tmp1.getValue() + " ";
-                tmp1 = tmp1.getNext();
-            }while(tmp1 != head);
+                output += current.getValue() + " ";
+                current = current.getNext();
+            }while(current != head);
 
             output += "]";
             System.out.println(output);
