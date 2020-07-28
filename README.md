@@ -11,8 +11,7 @@
     * Impl with LinkedList ✓
 * Hash Table ✓
 * Tree
-    * Binary Tree
-    * Binary Search Tree
+    * Binary Search Tree ✓
     * AVL Tree
 * Heap
 * Graph
